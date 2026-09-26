@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.19",
+  "tag": "v0.1.19",
+  "sourceCommit": "83004147b0ae5cf782c372225435c6df7282fda2",
+  "website": "https://gogogo.plutokeating.beer/website/",
+  "webApp": "https://gogogo.plutokeating.beer/",
+  "platforms": {
+    "web": {
+      "status": "available"
+    },
+    "wechat": {
+      "version": "0.1.19",
+      "status": "experience-uploaded",
+      "deviceAcceptance": "pending"
+    },
+    "douyin": {
+      "version": "0.1.19",
+      "status": "preview-uploaded",
+      "deviceAcceptance": "pending"
+    },
+    "android": {
+      "status": "no-installable-package"
+    },
+    "ios": {
+      "status": "no-installable-package"
+    }
+  },
+  "assets": {
+    "installers": [],
+    "metadata": [
+      "release-manifest.json",
+      "SHA256SUMS"
+    ]
+  }
+}
