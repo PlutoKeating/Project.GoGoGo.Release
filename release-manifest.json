@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "0.1.20",
-  "tag": "v0.1.20",
-  "sourceCommit": "10bfa3d00718a0a8bb5c5368d3c7658c0449c02a",
+  "version": "0.2.0",
+  "tag": "v0.2.0",
+  "sourceCommit": "e5676beb235d6df37520dc1d9380e0deacfdaa6c",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
@@ -10,24 +10,26 @@
       "status": "available"
     },
     "wechat": {
-      "version": "0.1.20",
+      "version": "0.2.0",
       "status": "experience-uploaded",
-      "deviceAcceptance": "pending"
+      "deviceAcceptance": "pending",
+      "sourceCommit": "fd6f5160c38027410e76786fdaf719cf9d0d51e9"
     },
     "douyin": {
-      "version": "0.1.20",
+      "version": "0.2.0",
       "status": "preview-uploaded",
-      "deviceAcceptance": "pending"
+      "deviceAcceptance": "pending",
+      "sourceCommit": "fd6f5160c38027410e76786fdaf719cf9d0d51e9"
     },
     "android": {
-      "version": "0.1.20",
+      "version": "0.2.0",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "6.0",
-      "asset": "GoGoGo-0.1.20-android-universal.apk",
-      "sha256": "5354c79075e5be53ee080a790378c0d213423254df7a427b81a6e0f5607dfe9c",
-      "bytes": 88041555,
-      "validation": "signed release APK; installed and launched on Android 14 emulator; background/foreground and tab return checked",
+      "asset": "GoGoGo-0.2.0-android-universal.apk",
+      "sha256": "3236a21de1ed934e54e5544336aa8a2d622cc744f27569211267c9d30815049b",
+      "bytes": 88125636,
+      "validation": "Signed release APK installed on an Android 14 emulator. Product UI rendered and process survived background/foreground switch.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -36,7 +38,7 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.1.20-android-universal.apk"
+      "GoGoGo-0.2.0-android-universal.apk"
     ],
     "metadata": [
       "release-manifest.json",
