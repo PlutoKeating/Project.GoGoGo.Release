@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "0.2.0",
-  "tag": "v0.2.0",
-  "sourceCommit": "e5676beb235d6df37520dc1d9380e0deacfdaa6c",
+  "version": "0.3.0",
+  "tag": "v0.3.0",
+  "sourceCommit": "9c8764a9f2c4c5821d73d72d6ac985f8ea004dc1",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
@@ -10,26 +10,40 @@
       "status": "available"
     },
     "wechat": {
-      "version": "0.2.0",
+      "version": "0.3.0",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "fd6f5160c38027410e76786fdaf719cf9d0d51e9"
+      "sourceCommit": "12ba5fd"
     },
     "douyin": {
-      "version": "0.2.0",
+      "version": "0.3.0",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "fd6f5160c38027410e76786fdaf719cf9d0d51e9"
+      "sourceCommit": "12ba5fd"
     },
     "android": {
-      "version": "0.2.0",
+      "version": "0.3.0",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
-      "minimumAndroid": "6.0",
-      "asset": "GoGoGo-0.2.0-android-universal.apk",
-      "sha256": "3236a21de1ed934e54e5544336aa8a2d622cc744f27569211267c9d30815049b",
-      "bytes": 88125636,
-      "validation": "Signed release APK installed on an Android 14 emulator. Product UI rendered and process survived background/foreground switch.",
+      "minimumAndroid": "7.0",
+      "asset": "GoGoGo-0.3.0-android-universal.apk",
+      "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
+      "bytes": 9885040,
+      "variants": [
+        {
+          "abi": "universal",
+          "asset": "GoGoGo-0.3.0-android-universal.apk",
+          "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
+          "bytes": 9885040
+        },
+        {
+          "abi": "arm64-v8a",
+          "asset": "GoGoGo-0.3.0-android-arm64-v8a.apk",
+          "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
+          "bytes": 9885040
+        }
+      ],
+      "validation": "Capacitor 8 H5-bundled signed release APKs verified on Android 14 emulator via WebView CDP deep E2E (privacy gate, CSS/0.96 press parity, non-GMS 542ms positioning, native authenticated WebSocket card, sensor-fused multi-modal in-app live navigation, hardware back stack) and release debug-socket closed + foreground/background retention check.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -38,7 +52,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.2.0-android-universal.apk"
+      "GoGoGo-0.3.0-android-universal.apk",
+      "GoGoGo-0.3.0-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",

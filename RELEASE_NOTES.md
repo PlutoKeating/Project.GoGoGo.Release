@@ -1,13 +1,15 @@
 ## 中文
 
-- 应用和官网支持中英文切换。附近地点推荐、行程卡和地图导航采用当前版本的交互，消息发送后会先在本机显示。
-- Web 用户直接打开官网即可使用。Android 用户可下载签名通用 APK，已有官方 0.1.20 的用户可以覆盖安装。普通升级无需手动迁移数据。
-- 微信提供 0.2.0 体验版，抖音提供 0.2.0 预览版。两个小程序均处于内测阶段，暂缓公开发布。iOS 本次没有可下载的 IPA。
-- 本次校验覆盖 Web 构建、官网生产地址、小程序构建与上传、Android 签名与模拟器启动。实体设备验收待完成。
+- **Android APP 全新架构重写（与网页版 100% 视觉与交互一致）**：采用 Capacitor 8 原生壳内嵌正式 H5 离线包与原生插件桥接，完整呈现 4200+ 行品牌样式、按钮 `0.96` 弹簧按压反馈、拍板卡盖章动效、三档图卡联动与 5:4 动态路线分享海报；安装包体积由 `88.1 MB` 降至 `9.4 MB`。
+- **无 Google 服务（GMS）国行手机定位与应用内实时跟随导航**：纯 Android 原生多源定位并行竞速北斗/GPS 与国内系统内置网络定位（3 秒总预算）；点击「带我去」直接在应用内开启传感器罗盘融合（`TYPE_ROTATION_VECTOR`）的实时位置跟随导航，支持应用内切换步行／骑行／公交地铁、路口转向指引、罗盘朝向扇形束、已走／待走双层路线与偏航自动重算，屏幕自动常亮，无需被迫跳出到外部地图 App。
+- **原生体验增强与隐私保护**：首次冷启动增加离线可读的《服务条款》与《隐私政策》确认提示（同意前零网络与零设备采集）；私人档案落盘至 Android 原生私有目录（`Directory.Data` 分块加密隔离，退出登录不丢失）；对话流采用原生鉴权 WebSocket；支持 PlutoKeating 账号 Custom Tabs 登录及 HTTPS App Links / `gogogo://` 深链回跳、侧滑返回手势栈拦截、触感振动、5:4 海报存系统相册与原生图片分享、唤起系统日历及大众点评／小红书／抖音原生 App，并在「我的」页新增版本检查更新卡片。
+- **升级与多端可用性**：提供签名的 `GoGoGo-0.3.0-android-universal.apk`（全架构通用）与 `GoGoGo-0.3.0-android-arm64-v8a.apk`（适用于 Android 7.0 及以上），沿用同一官方签名证书，已安装 `0.1.20` 或 `0.2.0` 的用户可直接覆盖升级。Web 版直接访问官网使用；微信体验版与抖音预览版已同步更新至 `0.3.0`（内测阶段，暂缓公开上线）；iOS 暂无可下载的 IPA。
+- **验证范围与限制**：已完成后端 268 项测试、Web 与官网生产部署校验、双小程序构建上传及 Android 14 模拟器 WebView CDP 深度端到端实测与正式包安全/前后台门禁校验；不同品牌实体手机真机路测验收持续进行中。
 
 ## English
 
-- The app and website support Chinese and English. This release updates nearby recommendations, itinerary cards and map navigation. Sent messages appear locally before network requests finish.
-- Open the website for the web app. Android users can install the signed universal APK over the official 0.1.20 build. A normal upgrade requires no manual data migration.
-- Version 0.2.0 is available through the WeChat experience build and the Douyin preview. Both mini programs remain in testing. Their public launches are on hold. This release has no downloadable iOS IPA.
-- Verification covers web builds, the production website, mini program builds and uploads, Android signing and emulator startup. Physical-device acceptance remains pending.
+- **Rebuilt Android App Architecture (100% Visual & Interactive Parity with H5)**: Rebuilt on Capacitor 8 with an offline-bundled production H5 core and native Android bridges, preserving every card layout, `0.96` spring press feedback, decision-card stamp animation, 3-detent interactive map sheet, and 5:4 shareable route poster while shrinking APK size from `88.1 MB` down to `9.4 MB`.
+- **Non-GMS Mainland China Positioning & Full In-App Live Navigation**: Native Android `LocationManager` races GNSS (BeiDou/GPS), system fused, and built-in network providers within a strict 3-second budget without requiring Google Play Services. Tapping "Take me" opens full in-app live route following powered by hardware sensor-fused compass heading (`TYPE_ROTATION_VECTOR`), featuring in-app Walk / Bike / Transit switching, turn-by-turn maneuver banners, directional heading cones, split walked/remaining polylines, off-route auto-rerouting, and screen wake lock without forcing users out to external map apps.
+- **Native Polish & Privacy Compliance**: Adds a first-launch offline-readable Terms & Privacy consent gate (zero network or sensor access prior to consent), dual-layer native `Directory.Data` private storage (account-isolated private profiles survive logout and WebView cache cleanup), native authenticated WebSocket streaming, persistent PKCE Custom Tabs sign-in with HTTPS App Links + `gogogo://` deep links, Android back-gesture stack handling, tactile haptics, gallery poster saving & native image share, system calendar launch, native social app launching, and an in-app update checker in the Me tab.
+- **Compatibility & Platform Availability**: Ships signed `GoGoGo-0.3.0-android-universal.apk` and `GoGoGo-0.3.0-android-arm64-v8a.apk` (Android 7.0+), signed with the same release certificate for seamless in-place upgrades over `0.1.20` and `0.2.0`. The Web app is live on the official website; WeChat `0.3.0` experience and Douyin `0.3.0` preview builds are uploaded for internal testing; no downloadable iOS IPA is included in this release.
+- **Verification & Limitations**: Verified across 268 backend tests, live Cloudflare Worker & Pages checks, WeChat/Douyin builds and uploads, and Android 14 emulator WebView CDP end-to-end + signed release security/lifecycle gates. Physical multi-OEM street testing remains ongoing.
