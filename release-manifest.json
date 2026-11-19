@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "0.3.2",
-  "tag": "v0.3.2",
-  "sourceCommit": "5fdf9f38d34468b2017318eab1e7fc8eefcaae0a",
+  "version": "0.4.0",
+  "tag": "v0.4.0",
+  "sourceCommit": "968afc0023977cd7388a4ab070c17206d04e76cb",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
@@ -10,40 +10,40 @@
       "status": "available"
     },
     "wechat": {
-      "version": "0.3.2",
+      "version": "0.4.0",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "c1c76f6"
+      "sourceCommit": "14cae7a"
     },
     "douyin": {
-      "version": "0.3.2",
+      "version": "0.4.0",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "c1c76f6"
+      "sourceCommit": "14cae7a"
     },
     "android": {
-      "version": "0.3.2",
+      "version": "0.4.0",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "7.0",
-      "asset": "GoGoGo-0.3.2-android-universal.apk",
-      "sha256": "7bcb54060ae7ff59e324b51a182a92671c2ae19cf1396e0c30d0d987519614b4",
-      "bytes": 9883939,
+      "asset": "GoGoGo-0.4.0-android-universal.apk",
+      "sha256": "d313e27df7693010b04785754ed9cf69ad11054989352ade67714d24a1f74bb7",
+      "bytes": 10138285,
       "variants": [
         {
           "abi": "universal",
-          "asset": "GoGoGo-0.3.2-android-universal.apk",
-          "sha256": "7bcb54060ae7ff59e324b51a182a92671c2ae19cf1396e0c30d0d987519614b4",
-          "bytes": 9883939
+          "asset": "GoGoGo-0.4.0-android-universal.apk",
+          "sha256": "d313e27df7693010b04785754ed9cf69ad11054989352ade67714d24a1f74bb7",
+          "bytes": 10138285
         },
         {
           "abi": "arm64-v8a",
-          "asset": "GoGoGo-0.3.2-android-arm64-v8a.apk",
-          "sha256": "7bcb54060ae7ff59e324b51a182a92671c2ae19cf1396e0c30d0d987519614b4",
-          "bytes": 9883939
+          "asset": "GoGoGo-0.4.0-android-arm64-v8a.apk",
+          "sha256": "d313e27df7693010b04785754ed9cf69ad11054989352ade67714d24a1f74bb7",
+          "bytes": 10138285
         }
       ],
-      "validation": "Capacitor 8 H5-bundled signed release APKs (v1 CERT JAR + v2 only, targetSdkVersion 34) verified via screen-by-screen Panyu Wanda eyeball parity, Android 14 headless emulator WebView CDP deep E2E + layout geometry assertions, and release security/lifecycle gates.",
+      "validation": "ADR 0014 Unified 3D MapLibre Navigation Cockpit & 3-Detent Trip Drawer signed release APKs (v1 CERT JAR + v2 only, targetSdkVersion 34) verified via Android 14 headless emulator WebView CDP deep E2E, screen-by-screen eyeball review, and release security/lifecycle gates.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -52,8 +52,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.3.2-android-universal.apk",
-      "GoGoGo-0.3.2-android-arm64-v8a.apk"
+      "GoGoGo-0.4.0-android-universal.apk",
+      "GoGoGo-0.4.0-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",
