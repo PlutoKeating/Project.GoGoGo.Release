@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "0.3.0",
-  "tag": "v0.3.0",
-  "sourceCommit": "9c8764a9f2c4c5821d73d72d6ac985f8ea004dc1",
+  "version": "0.3.1",
+  "tag": "v0.3.1",
+  "sourceCommit": "1954eb6372c1a3d45249be08e84225c7a4fa56fc",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
@@ -10,40 +10,40 @@
       "status": "available"
     },
     "wechat": {
-      "version": "0.3.0",
+      "version": "0.3.1",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "12ba5fd"
+      "sourceCommit": "6631ca0"
     },
     "douyin": {
-      "version": "0.3.0",
+      "version": "0.3.1",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "12ba5fd"
+      "sourceCommit": "6631ca0"
     },
     "android": {
-      "version": "0.3.0",
+      "version": "0.3.1",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "7.0",
-      "asset": "GoGoGo-0.3.0-android-universal.apk",
-      "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
-      "bytes": 9885040,
+      "asset": "GoGoGo-0.3.1-android-universal.apk",
+      "sha256": "29b46072b23e5b6d90db2ced796791b654a3b37fa9f806901cda3f5c2bab7cb0",
+      "bytes": 9883939,
       "variants": [
         {
           "abi": "universal",
-          "asset": "GoGoGo-0.3.0-android-universal.apk",
-          "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
-          "bytes": 9885040
+          "asset": "GoGoGo-0.3.1-android-universal.apk",
+          "sha256": "29b46072b23e5b6d90db2ced796791b654a3b37fa9f806901cda3f5c2bab7cb0",
+          "bytes": 9883939
         },
         {
           "abi": "arm64-v8a",
-          "asset": "GoGoGo-0.3.0-android-arm64-v8a.apk",
-          "sha256": "61bd209b4be11b0abb530bf7373cb009af5adcd8b5c9751f7c09c964c0330e8a",
-          "bytes": 9885040
+          "asset": "GoGoGo-0.3.1-android-arm64-v8a.apk",
+          "sha256": "29b46072b23e5b6d90db2ced796791b654a3b37fa9f806901cda3f5c2bab7cb0",
+          "bytes": 9883939
         }
       ],
-      "validation": "Capacitor 8 H5-bundled signed release APKs verified on Android 14 emulator via WebView CDP deep E2E (privacy gate, CSS/0.96 press parity, non-GMS 542ms positioning, native authenticated WebSocket card, sensor-fused multi-modal in-app live navigation, hardware back stack) and release debug-socket closed + foreground/background retention check.",
+      "validation": "Capacitor 8 H5-bundled release APKs canonically aligned and signed with v1 (CERT JAR) + v2 only (v3/v4 disabled, targetSdkVersion 34) for vivo OriginOS / domestic OEM compatibility; verified via 0.2.0 -> 0.3.1 in-place upgrade, Android 14 emulator WebView CDP deep E2E, and release security/lifecycle gates.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -52,8 +52,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.3.0-android-universal.apk",
-      "GoGoGo-0.3.0-android-arm64-v8a.apk"
+      "GoGoGo-0.3.1-android-universal.apk",
+      "GoGoGo-0.3.1-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",
