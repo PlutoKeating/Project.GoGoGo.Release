@@ -1,19 +1,65 @@
+# 走不走 v0.6.2 / GoGoGo v0.6.2
+
 ## 中文
 
-- **纯正无上限 `PiHarness` ReAct + QuickJS `CodeMode` 动态行程引擎**：彻底移除对话入口处全部前置关键词/正则劫持（`quickIntent`、`isDirectPlanIntent`、`isNearbyDiscovery`）、移除 `maxTurns = 2` 步数锁与工具 `terminate: true` 强退限制，改为按真实流式输出与工具进展无限续期。内置 `read_context`、多片区并发 `search_places`（联动 `<50ms` 预取缓存池、高德 POI 2.0、天地图与自有审核库）、`inspect_places`、多模态 `compute_routes`、`read_itinerary` 与 `write_itinerary` 等正交有状态工具，并接入 `@earendil-works/pi-durable/codemode`（Cloudflare Workers 原生编译 `quickjs.wasm` 沙箱，带崩溃重放卡片恢复），支持狗狗GO 在单轮或多轮对话中自主完成从单站探店到 12 小时跨片区全天漫游（早茶/午餐/下午茶/晚餐/夜生活多餐并存）的多步检索、排程组装与打烊/忌口自检纠错；健康约束发送大模型前严格执行白名单安全码脱敏。
-- **多节点动态行程图（`Plan` v2 / `OutingCanvasDoc`）与槽位内 0ms 平行分支**：突破旧版最多 3 站与同角色互斥上限，支持 `1..24` 站任意扩充、稳定 `nodeId` 与候选池短 `poiId` 防幻觉寻址、北京时间（`UTC+8`）时段锚点与站间弹性留白（支持跨午夜 `23:30 → 00:30` 单调时间推演）、起止返程锚点（含深夜末班公共交通停运自动切换打车提醒）、步行/骑行/公交地铁（含线路站数）/打车智能多模态算路、智能弹性预算，以及槽位内 `branchOptions` 平行分支（如「路线A · CBD逛街」与「路线B · 公园吸氧」点按 `0ms` 本地秒切并实时联动前后交通耗时与总花费）；支持单站锁定（`locked`）并通过 `SendConversationMessage.canvasPlan` 结构化直通服务端硬守卫，支持运行中随时打字插话（`whenBusy: "steer"`）。
-- **唯一官方吉祥物「狗狗GO」像素级 SVG 矢量重绘与全域资产统一**：以暖奶白毛色、亮橙飞扬垂耳与白色地图定位标三角领巾的元气奔跑小狗确立为全项目唯一吉祥物，手写亚像素级三次贝塞尔矢量母版 `mascot.svg`（分层微动效）与小尺寸高辨识度头像母版 `mascot-avatar.svg`；实现 H5/APP 原生内联矢量动画与小程序无 `btoa`/`globalThis` 安全矢量渲染，消除冷启动图标 404，并确定性重新生成宣传站、管理后台、小程序地图标记、5:4 分享海报以及 Android 自适应桌面图标与启动屏。
-- **杂志感探店画报风（Editorial Lifestyle）全站重写与「行程画布 / 3D 实时导航」解耦**：告别 `#f6f7f8` 冷灰线框与单卡二元死胡同，全端统一切换为 `#FAF7F2` 暖画报纸底、毛玻璃悬浮底坞、7 大主题 `<EditorialCover />` 实拍/定制编辑插画封面与高对比暖墨排版，历史行程卡永久保持可交互。重构「行程」Tab 默认进入独立的 **`<EditorialTripWorkspace />` 杂志感行程画布**（支持桌面 `1160px` 左排右图双栏联动舞台、手机紧凑防遮挡地图锚点、自由上下移动/删站/顺路插站并实时重算多模态路线、乱序打卡、修复抖音双标题栏），仅在点击「开始出发 · 进入实时导航」时切入全屏 3D 实时导航驾驶舱（左上角新增「返回行程画布」一键回退）。
-- **多人「群拍板」全员共享画布平等共创（迁移 `016_collaborative_canvas_v060.sql`）**：新增 `sync_canvas` 协作动作与数据库列级 `BEFORE UPDATE` 防越权触发器，局内所有已加入成员在 `collecting`、`voting`、`confirmed`、`active` 全阶段均可平等增删改排未打卡站点、切换主分支或修改出行方式（持 `revision` 乐观锁并在 `409` 冲突时自动同步最新版，严格保护已打卡站点不可篡改，投票期结构变更自动重计票）。
-- **升级与多端可用性**：提供签名的 `GoGoGo-0.6.0-android-universal.apk`（全架构通用）与 `GoGoGo-0.6.0-android-arm64-v8a.apk`（均 `9,922,319` 字节，约 `9.5 MB`，`versionCode 6000`，Android 7.0+，规范签发 `v1 + v2` 签名与 `targetSdkVersion 34` 兼容国产系统侧载），沿用官方发布证书（SHA-256 `FA:49:93:27:...`），支持从 `0.1.20`–`0.5.0` 无缝覆盖升级。Web 版、Cloudflare Worker 后端、ECS 数据库迁移 `016`、微信体验版（`0.6.0`）与抖音预览版（`0.6.0`）均已同步上线；iOS 暂无可下载的 IPA。
-- **验证范围与限制**：已完成后端 51 个测试文件（307 项用例，含健康隐私金丝雀测试与 `codemode` 崩溃重放卡片恢复测试）、前端全套 Playwright E2E 门禁（`320px / 390px / 1440px`）、线上生产 Worker 周五 12 小时 8 站多分支真实 ReAct + `codemode` 端到端实测、Android 14 无窗口模拟器安装启动/远程调试关闭安全门禁与前后台保持校验、以及微信与抖音 `0.6.0` 上传验证；小程序真机扫码验收与多品牌手机户外长距离路测持续进行中。
+### 这次更新解决了什么
+
+- **忌口真正记得住**：固定 8 项预设、自定义忌口与对话中口头补充的忌口统一进入会话级 `OutingCanvasDoc` 记忆，跨轮追问、零工具回合与运行中插话均不丢失；也可以在「我的 → 饮食与偏好」中随时管理，游客同样本机持久保存，登录后跨设备同步。清真保持严格白名单，其他忌口硬性剔除冲突专营店，普通综合餐厅提示向厨房确认。
+- **指定地点周边搜得更准**：新增 `resolve_place` 空间锚点工具，支持「我要去的这个地方周围 1.5 公里」「深圳湾公园周围 800 米」等指定地标/行程站点/当前目的地检索，范围 `100m–50km`，严格执行球面距离裁剪并标明实际圆心与半径；地标解析失败会明确说明，绝不悄悄拿当前 GPS 冒充目标地点。
+- **问怎么用，不再乱排路线**：产品功能与界面咨询由狗狗GO 直接给出与真实界面一致的操作指引；「放到行程页面」在多个候选且未指明店名时会先让你确认，不再盲选第一家。
+- **每站都能一键换一家**：行程卡与行程页自动配齐同细分类别、同饮食约束、营业时段兼容且顺路的备选；点按「↻ 换一家」即可 `0ms` 循环切换，站点时刻、衔接交通与预算同步更新，历史卡片与流式更新均不会回滚。
+- **群拍板真正融合每个人的想法**：入局与局内想法更新改为增量画布融合，保留已打卡与兼容已锁定站点，支持具体店名、同餐段分歧平行分支与饭后新阶段（如唱K）；`confirmed` 盖章后出发前仍可微调路线且不退回投票，跨商圈/弹性预算不再误报 `422`。想法中的忌口只进入匿名约束，不公开展示个人归属，未经同意绝不写入健康字段。
+- **行程页更清爽**：默认阅读态去除内部工程术语与重复价格评分，排序/锁定/删除及段间交通切换收进「调整行程」；单点目的地可「+ 顺路加下一站」直接串成多站，空行程页可搜首站或使用多站模板直接开排。
+
+### 兼容性与迁移
+
+- Web H5、Android APP、微信小程序、抖音小程序共用同一套业务代码与 `Plan` v2 行程画布协议。
+- 生产 PostgreSQL 已备份并应用迁移 `017_group_idea_constraints.sql`：升级 `update_member_idea`（支持私密忌口合并，保留 `healthConsent`）与 `reconcile_voting_session`（`confirmed` 状态原子更新方案且保留盖章/投票）。
+- 旧版 `OutingCanvasDoc` 快照自动补齐会话忌口数组，保持严格 JSON 兼容。
+
+### 平台与资源
+
+- Web H5：<https://gogogo.plutokeating.beer/>
+- Android：签名 Universal APK 与 arm64-v8a APK（`versionCode 6002`，沿用官方发布证书，支持覆盖安装）。
+- 微信 / 抖音：`0.6.2` 体验版 / 预览版已上传；小程序仍需按平台规则体验，真机验收以平台回执与实机为准。
+- iOS：仍缺少 Apple 分发签名配置，本版本无 IPA。
+
+### 验证范围与已知限制
+
+- 后端 56 个测试文件 / 336 项用例通过；前后端 TypeScript 0 错误。
+- Web H5 Canonical Playwright 门禁通过：候选循环与前后台持久化、历史卡片定向追问、行程工作台 ↔ 3D 驾驶舱、群拍板海报/深链/封盘/平权共创、320/390 声明式卡片零溢出、定位选择、账号登录、本地优先与恢复。
+- Android 正式签名包通过静态证书/权限/正式 H5 资源门禁，并在本地 Android 14 模拟器完成安装启动与 WebView 深度交互验收；实体真机户外路测与微信/抖音真机验收仍需继续补充。
+- 地图、营业时间与路线依赖真实上游，不能视为实时交通、空位或营业承诺；本版本不接入付费菜单级配料库。
+
+---
 
 ## English
 
-- **Unconstrained `PiHarness` ReAct + QuickJS `CodeMode` Itinerary Engine**: Removed all pre-LLM regex hijacks (`quickIntent`, `isDirectPlanIntent`, `isNearbyDiscovery`), the `maxTurns = 2` cap, and `terminate: true` tool locks in favor of progress-renewed autonomous turns. Equipped `ConversationAgent` with orthogonal stateful tools (`read_context`, batch multi-area `search_places` backed by `<50ms` warm prefetch + AMap POI 2.0 + TianDiTu + verified seeds, `inspect_places`, multimodal `compute_routes`, `read_itinerary`, `write_itinerary`) plus `@earendil-works/pi-durable/codemode` (Wrangler-compiled `quickjs.wasm` sandbox with crash-replay card reconstruction), enabling multi-step discovery, self-repairing hour/diet audits, and full-day 12-hour multi-meal planning; outbound LLM prompts strictly whitelist canonical safety codes (`sanitizeHealthCodesForPrompt`) with zero raw medical prose leakage.
-- **Dynamic Multi-Node `Plan` v2 Graph (`OutingCanvasDoc`) & 0ms Parallel Branching**: Lifted the 3-stop and single-role limits to support `1..24` stops addressed by stable `nodeId` and anti-hallucination `candidatePool` `poiId`s, `Asia/Shanghai` clock anchors with leisure slack windows and monotonic midnight wrap-around (`23:30 → 00:30`), origin/return anchors (with late-night ride-hail notices), smart multimodal legs (`walk`, `bike`, `transit` with subway line summaries, `taxi` fare estimates), smart elastic budgets, and inline `branchOptions` (e.g., `Route A · CBD` vs `Route B · Park` switchable in `0ms` with live leg & budget cascading). Supports per-stop `locked` guards synced end-to-end via `SendConversationMessage.canvasPlan` and mid-run user steering (`whenBusy: "steer"`).
-- **Pixel-Accurate Cubic-Bezier SVG Mascot (`狗狗GO`) Across All Surfaces**: Replaced the legacy raster human character with the canonical scouting puppy wearing an orange map-pin neckerchief (`marketing/brand/assets/mascot.svg` & `mascot-avatar.svg`), shipping animated inline `<svg>` on H5/APP, `btoa`/`globalThis`-free vector rendering on mini-programs, zero-404 inline boot splash, and deterministically regenerated assets across the promo website, admin dashboard, map pins, 5:4 share posters, and Android adaptive launcher/splash icons.
-- **Editorial Lifestyle UI Overhaul & Decoupled Trip Workspace**: Replaced the `#f6f7f8` grey wireframe and binary yes/no deck with a warm `#FAF7F2` gallery-paper design system, frosted-glass floating docks, 7-theme `<EditorialCover />` photography/illustrated covers, and permanently interactive timeline cards. Decoupled the `行程` (Trip) tab into a dedicated **`<EditorialTripWorkspace />`** (`1160px` desktop 2-column studio split, decluttered interactive map pins, live route-recomputing stop reorder/insert/delete, out-of-order check-in, and Douyin duplicate-titlebar removal) cleanly separated from the 3D `<UnifiedTripCockpit />` (entered via *Start Trip · Live Navigation* with one-tap *← Trip Canvas* return).
-- **Equal Group Canvas Co-Editing (`016_collaborative_canvas_v060.sql`)**: Added `sync_canvas` with PostgreSQL `BEFORE UPDATE` column-level guards (`trg_guard_session_update`), enabling all joined group members across `collecting`, `voting`, `confirmed`, and `active` states to co-edit unvisited stops, switch branches, and update transit modes with optimistic `revision` locking (`409` auto-refresh), `checkedIn` immutability, and automatic vote resets during `voting`.
-- **Compatibility & Platform Availability**: Ships signed `GoGoGo-0.6.0-android-universal.apk` and `GoGoGo-0.6.0-android-arm64-v8a.apk` (`9,922,319` bytes / `~9.5 MB` each, `versionCode 6000`, Android 7.0+, canonical `v1 + v2` signature targeting SDK 34), signed with the official release certificate (`FA:49:93:27:...`) for seamless upgrades over `0.1.20`–`0.5.0`. Web H5, Cloudflare Worker backend, PostgreSQL migration `016`, WeChat `0.6.0` experience, and Douyin `0.6.0` preview builds are live; no downloadable iOS IPA is included.
-- **Verification & Limitations**: Verified across 51 backend test suites (307 tests including medical canary redaction and `codemode` replay recovery), full Playwright H5 E2E gates (`320px / 390px / 1440px`), live production Worker 9-round 8-stop Friday 12-hour ReAct + `codemode` execution, headless Android 14 emulator signed release installation/security/lifecycle checks, and WeChat/Douyin `0.6.0` uploads. Physical mini-program QR device walk-tests remain ongoing.
+### What’s new
+
+- **Dietary restrictions that actually persist**: all 8 presets, custom restrictions, and spoken/steered updates now live in session-level `OutingCanvasDoc` memory across follow-ups, zero-tool turns, and mid-run steering. Guests can manage local-first preferences in **Me → Diet & preferences**; signed-in users sync across devices. Halal remains a strict whitelist; other restrictions hard-block conflicting specialty venues and remind you to confirm ingredients with kitchen staff at general restaurants.
+- **Accurate search around a chosen place**: the new `resolve_place` spatial anchor tool supports searches such as “within 1.5 km of where I’m going” or “within 800 m of Shenzhen Bay Park”, from **100 m to 50 km**, with strict Haversine filtering and an explicit resolved center/radius. Unresolved landmarks return an honest empty result instead of silently falling back to your GPS.
+- **Usage questions no longer invent routes**: 狗狗GO answers product/UI questions with instructions that match the real interface, and `open_in_trip_page` asks which venue you mean instead of blindly picking the first candidate.
+- **One-tap “Swap” on every stop**: itinerary cards and the trip workspace now carry role-matched, diet-compatible, open-hours-aware nearby backups. Tap **↻ Swap** to cycle instantly with updated legs, clocks, and budget—stable across streaming updates and historical cards.
+- **Group outings that fuse everyone’s ideas**: joins and in-room idea updates incrementally enrich `Plan` v2, preserving checked-in and compatible locked stops, named venues, same-slot parallel options, and new stages such as karaoke. Pre-departure edits in `confirmed` keep the seal and votes intact, and cross-district/elastic-budget plans no longer trigger false `422` errors. Dietary terms become anonymous constraints only; health data is never stored without consent.
+- **A calmer trip workspace**: a clean reading mode removes jargon and repeated price/rating blocks; reorder/lock/delete and transit-mode controls live behind **Edit trip**. A single destination can grow into a multi-stop plan, and an empty trip tab can start from a searched first stop or a ready-made template.
+
+### Compatibility & migration
+
+- Web H5, Android, WeChat Mini Program, and Douyin Mini Program share the same business code and `Plan` v2 canvas protocol.
+- Production PostgreSQL was backed up and migrated with `017_group_idea_constraints.sql` (private diet merging with `healthConsent` preserved, and `confirmed`-preserving plan reconciliation).
+- Legacy `OutingCanvasDoc` snapshots are normalized with default session-constraint arrays while keeping strict JSON compatibility.
+
+### Platforms & resources
+
+- Web H5: <https://gogogo.plutokeating.beer/>
+- Android: signed Universal and arm64-v8a APKs (`versionCode 6002`, official release certificate, upgrade-safe).
+- WeChat / Douyin: `0.6.2` experience/preview builds uploaded; on-device acceptance remains subject to platform receipts and real-device checks.
+- iOS: no IPA in this release because Apple distribution signing is not configured.
+
+### Verification & known limits
+
+- 56 backend test files / 336 tests passed; zero TypeScript errors in backend and frontend.
+- Web H5 Canonical Playwright gates passed for candidate cycling and foreground/background persistence, historical-card targeting, workspace ↔ 3D cockpit, group poster/deep-link/seal/equal co-editing, 320/390px UI blocks without overflow, location picking, account login, and local-first restore.
+- Signed Android APKs passed certificate/permission/production-H5 artifact gates and installation/startup plus deep WebView interaction checks on a local Android 14 emulator. Physical outdoor device testing and WeChat/Douyin real-device acceptance remain follow-up work.
+- Maps, opening hours, and routes depend on live upstream providers and are not guarantees of real-time traffic, availability, or opening status. No paid menu-level ingredient database is included.
