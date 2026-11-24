@@ -1,50 +1,53 @@
 {
   "schemaVersion": 1,
-  "version": "0.6.2",
-  "tag": "v0.6.2",
-  "sourceCommit": "abecbb2",
+  "version": "0.6.3",
+  "tag": "v0.6.3",
+  "sourceCommit": "78739a5",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
     "web": {
-      "status": "available"
+      "status": "available",
+      "pagesDeployment": "7a3454ed"
     },
     "wechat": {
-      "version": "0.6.2",
+      "version": "0.6.3",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "33474da"
+      "sourceCommit": "82c5f46",
+      "artifactSha256": "9783e74b8cff9af502afeea9ebb674205553e7b91d8959d65ca2dadb5b24476d"
     },
     "douyin": {
-      "version": "0.6.2",
+      "version": "0.6.3",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "33474da",
-      "previewShortUrl": "https://t.zijieimg.com/i4JPwYxT/"
+      "sourceCommit": "82c5f46",
+      "artifactSha256": "a3e9f49693f1e22c9b573e38529266d1a59d6096d412ab403bd1e460597e7db1",
+      "previewShortUrl": "https://t.zijieimg.com/i4JmrraV/"
     },
     "android": {
-      "version": "0.6.2",
+      "version": "0.6.3",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "7.0",
-      "asset": "GoGoGo-0.6.2-android-universal.apk",
-      "sha256": "6c1c2a21208b93450ebd4add813f4e91b3c07cc13cd4ac0f32bf2f85de0bab75",
+      "asset": "GoGoGo-0.6.3-android-universal.apk",
+      "sha256": "531d1189f09177af86e1c6a8204ef865d94dd99b149170ca61e8e4e7a9f0fd92",
       "bytes": 9930511,
       "variants": [
         {
           "abi": "arm64-v8a",
-          "asset": "GoGoGo-0.6.2-android-arm64-v8a.apk",
-          "sha256": "6c1c2a21208b93450ebd4add813f4e91b3c07cc13cd4ac0f32bf2f85de0bab75",
+          "asset": "GoGoGo-0.6.3-android-arm64-v8a.apk",
+          "sha256": "531d1189f09177af86e1c6a8204ef865d94dd99b149170ca61e8e4e7a9f0fd92",
           "bytes": 9930511
         },
         {
           "abi": "universal",
-          "asset": "GoGoGo-0.6.2-android-universal.apk",
-          "sha256": "6c1c2a21208b93450ebd4add813f4e91b3c07cc13cd4ac0f32bf2f85de0bab75",
+          "asset": "GoGoGo-0.6.3-android-universal.apk",
+          "sha256": "531d1189f09177af86e1c6a8204ef865d94dd99b149170ca61e8e4e7a9f0fd92",
           "bytes": 9930511
         }
       ],
-      "validation": "v0.6.2 persistent diet memory, resolve_place spatial anchors, strict-radius search, 1-tap stop alternatives, group idea fusion and decluttered trip workspace signed release APKs (v1 CERT JAR + v2 only, targetSdkVersion 34) verified via check:android-artifact and headless Android 14 emulator release install/privacy/location/WebSocket/navigation/security/lifecycle gate.",
+      "validation": "v0.6.3 signed release APKs (v1 CERT JAR + v2 only, targetSdkVersion 34) verified via check:android-artifact and Android 14 emulator final-package override install/launch/version/fatal-log gate. Independent production H5 first-time QA verdict SHIP for deploy 7a3454ed.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -53,8 +56,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.6.2-android-universal.apk",
-      "GoGoGo-0.6.2-android-arm64-v8a.apk"
+      "GoGoGo-0.6.3-android-universal.apk",
+      "GoGoGo-0.6.3-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",
