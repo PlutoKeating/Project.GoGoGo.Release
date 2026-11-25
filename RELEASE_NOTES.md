@@ -27,7 +27,7 @@
 ### 兼容性与迁移
 
 - 无数据库迁移，接口请求与响应格式不变。
-- 本版本客户端不依赖新的后端：防连点、去重与失败后先核对再重试都在客户端完成。源码中另有两处服务端重放保护（同一方案短时间内重复创建行程返回同一个行程；同一人对同一地点的同类现场反馈 30 分钟内只计一次），**本次未部署 Worker**，它们随下一次 Worker 部署生效。
+- 本版本客户端不依赖新的后端：防连点、去重与失败后先核对再重试都在客户端完成。源码中另有两处服务端重放保护（同一方案短时间内重复创建行程返回同一个行程；同一人对同一地点的同类现场反馈 30 分钟内只计一次），后端已随本次发布上线（Worker 版本 `85149248`），线上实测同一方案连续提交两次返回同一个行程。
 - 账户、本机私人档案、本地会话与草稿的存储格式保持不变；升级不需要清理缓存或重新登录。本机新增三个待送达记录键，不参与缓存淘汰。
 
 ### 验证范围与已知限制
@@ -75,7 +75,7 @@
 ### Compatibility and migration
 
 - No database migration; request and response formats are unchanged.
-- This client does not depend on a new backend: tap locking, de-duplication and “check first, then retry” all happen on the client. The source also contains two server-side replay guards (creating an outing from the same plan again within a short window returns the same outing; the same person’s same on-site report about a place counts once per 30 minutes). **The Worker was not deployed in this release**; they take effect with the next Worker deployment.
+- This client does not depend on a new backend: tap locking, de-duplication and “check first, then retry” all happen on the client. The source also contains two server-side replay guards (creating an outing from the same plan again within a short window returns the same outing; the same person’s same on-site report about a place counts once per 30 minutes). The backend went live with this release (Worker version `85149248`); a live check confirmed that submitting the same plan twice returns the same outing.
 - Account data, on-device private profiles, local conversations and drafts keep their format; upgrading needs no cache clearing or re-login. Three new on-device keys hold writes that are still to be delivered and are exempt from cache eviction.
 
 ### Verification and known limits
