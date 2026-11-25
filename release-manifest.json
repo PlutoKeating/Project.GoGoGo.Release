@@ -1,53 +1,53 @@
 {
   "schemaVersion": 1,
-  "version": "0.6.5",
-  "tag": "v0.6.5",
-  "sourceCommit": "5608a41800ecb8ed09fdcc2e5f309ab8beea6bbd",
+  "version": "0.6.7",
+  "tag": "v0.6.7",
+  "sourceCommit": "fbc681e9c0cd8e6456ce0d22c7e9b564c4f5f5d5",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
     "web": {
       "status": "available",
-      "pagesDeployment": "ee4f6de1"
+      "pagesDeployment": "f32022ed"
     },
     "wechat": {
-      "version": "0.6.5",
+      "version": "0.6.7",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "6937838",
-      "artifactSha256": "ab72732718cc9c94204ae2b0a3a591c30f37d07c972a5eef25f2983553d2f86e"
+      "sourceCommit": "610c66b",
+      "artifactSha256": "0d916995812902cb59e3b3fc2901bade08773a2a6343c98d116211d8c0584e4e"
     },
     "douyin": {
-      "version": "0.6.5",
+      "version": "0.6.7",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "6937838",
-      "artifactSha256": "999eeac9da46ca6fc9c4294a8e1382f9004f9f3d155b0b83a23fc8698807e08d",
-      "previewShortUrl": "https://t.zijieimg.com/i4J3uuca/"
+      "sourceCommit": "610c66b",
+      "artifactSha256": "5459121118dbab13063665fee19a35ac43c7696b1d588ff50011e4c1dee4f768",
+      "previewShortUrl": "https://t.zijieimg.com/i4J37w8o/"
     },
     "android": {
-      "version": "0.6.5",
+      "version": "0.6.7",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "7.0",
-      "asset": "GoGoGo-0.6.5-android-universal.apk",
-      "sha256": "e433ac4992d041ad04045d4a40393fcde6584cb4eab6e45da5bde9b77daf3103",
-      "bytes": 9955186,
+      "asset": "GoGoGo-0.6.7-android-universal.apk",
+      "sha256": "f23a5f147b1578a6e66a8c4038119287e19a8c88bca200783b86a9086920cee5",
+      "bytes": 10000328,
       "variants": [
         {
           "abi": "arm64-v8a",
-          "asset": "GoGoGo-0.6.5-android-arm64-v8a.apk",
-          "sha256": "e433ac4992d041ad04045d4a40393fcde6584cb4eab6e45da5bde9b77daf3103",
-          "bytes": 9955186
+          "asset": "GoGoGo-0.6.7-android-arm64-v8a.apk",
+          "sha256": "f23a5f147b1578a6e66a8c4038119287e19a8c88bca200783b86a9086920cee5",
+          "bytes": 10000328
         },
         {
           "abi": "universal",
-          "asset": "GoGoGo-0.6.5-android-universal.apk",
-          "sha256": "e433ac4992d041ad04045d4a40393fcde6584cb4eab6e45da5bde9b77daf3103",
-          "bytes": 9955186
+          "asset": "GoGoGo-0.6.7-android-universal.apk",
+          "sha256": "f23a5f147b1578a6e66a8c4038119287e19a8c88bca200783b86a9086920cee5",
+          "bytes": 10000328
         }
       ],
-      "validation": "v0.6.5 signed release APKs (v1 CERT JAR + v2 only, targetSdkVersion 34) verified via check:android-artifact; on a headless Android 14 emulator the build installed over 0.6.4 (versionCode 6005) and the signed release passed install, WebView-debug-port-closed and background/foreground process checks. The debug-build deep CDP interaction run (live-model itinerary) was not executed and is not claimed.",
+      "validation": "v0.6.7 signed release APKs (versionCode 6007) verified via check:android-artifact; on a headless Android 14 emulator the signed release passed install, WebView-debug-port-closed and background/foreground process checks, the domain's App Links state was 'verified', and a system browse intent for an invite address landed in the app. The debug-build deep CDP interaction run was not executed and is not claimed.",
       "physicalDeviceAcceptance": "pending"
     },
     "ios": {
@@ -56,8 +56,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.6.5-android-universal.apk",
-      "GoGoGo-0.6.5-android-arm64-v8a.apk"
+      "GoGoGo-0.6.7-android-universal.apk",
+      "GoGoGo-0.6.7-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",
