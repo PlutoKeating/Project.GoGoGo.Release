@@ -1,55 +1,55 @@
 {
   "schemaVersion": 1,
-  "version": "0.7.3",
-  "tag": "v0.7.3",
-  "sourceCommit": "e77de53c51d300ddc843f008ff78e990bb951fb1",
+  "version": "0.7.4",
+  "tag": "v0.7.4",
+  "sourceCommit": "43487a21e80316139fc3c88862ca97a0999b33be",
   "website": "https://gogogo.plutokeating.beer/website/",
   "webApp": "https://gogogo.plutokeating.beer/",
   "platforms": {
     "web": {
       "status": "available",
-      "pagesDeployment": "54cae4c1"
+      "pagesDeployment": "e10b7550"
     },
     "wechat": {
-      "version": "0.7.3",
+      "version": "0.7.4",
       "status": "experience-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "03c8644",
-      "artifactSha256": "e01515d317203dcdc750d02da297cf2c6f369b25ecc7ca34f04574c55118eb95"
+      "sourceCommit": "6e888b1",
+      "artifactSha256": "da61ad9db1da51d7602d2af6f059c981ac85bcf875fcba40fce723447d349b03"
     },
     "douyin": {
-      "version": "0.7.3",
+      "version": "0.7.4",
       "status": "preview-uploaded",
       "deviceAcceptance": "pending",
-      "sourceCommit": "03c8644",
-      "artifactSha256": "1a677f3389ea03c7fb47b19f21ae4986b39b89c8c97a073001222c4736fdc73e",
-      "previewShortUrl": "https://t.zijieimg.com/i4eMrmFa/"
+      "sourceCommit": "6e888b1",
+      "artifactSha256": "a3cfe8a4e7353a4540c8630e48ac116cad6688c414f5f2db107134b78a1dd6c8",
+      "previewShortUrl": "https://t.zijieimg.com/i4erB469/"
     },
     "android": {
-      "version": "0.7.3",
+      "version": "0.7.4",
       "status": "available",
       "package": "beer.plutokeating.gogogo",
       "minimumAndroid": "7.0",
-      "asset": "GoGoGo-0.7.3-android-universal.apk",
-      "sha256": "9b34fd3194baa8ecdbea7927d11adf6b09feb2c5ec3fa374652df06365dd352f",
+      "asset": "GoGoGo-0.7.4-android-universal.apk",
+      "sha256": "63e017622e1bfca5a0179154a2ba8803cbee9b9fd6a850e3b4e5e408d2507831",
       "bytes": 10090651,
       "variants": [
         {
           "abi": "arm64-v8a",
-          "asset": "GoGoGo-0.7.3-android-arm64-v8a.apk",
-          "sha256": "9b34fd3194baa8ecdbea7927d11adf6b09feb2c5ec3fa374652df06365dd352f",
+          "asset": "GoGoGo-0.7.4-android-arm64-v8a.apk",
+          "sha256": "63e017622e1bfca5a0179154a2ba8803cbee9b9fd6a850e3b4e5e408d2507831",
           "bytes": 10090651
         },
         {
           "abi": "universal",
-          "asset": "GoGoGo-0.7.3-android-universal.apk",
-          "sha256": "9b34fd3194baa8ecdbea7927d11adf6b09feb2c5ec3fa374652df06365dd352f",
+          "asset": "GoGoGo-0.7.4-android-universal.apk",
+          "sha256": "63e017622e1bfca5a0179154a2ba8803cbee9b9fd6a850e3b4e5e408d2507831",
           "bytes": 10090651
         }
       ],
-      "validation": "v0.7.3 signed release APKs (versionCode 7003) built from 03c8644 verified via check:android-artifact; on a headless Android 14 emulator the build installed over the public 0.7.2 (downloaded from the R2 mirror) and the signed release passed install, WebView-debug-port-closed and background/foreground process checks. The debug-build deep CDP interaction run was not executed and is not claimed.",
+      "validation": "v0.7.4 signed release APKs (versionCode 7004) built from 6e888b1 verified via check:android-artifact; on a headless Android 14 emulator the build installed over the public 0.7.3 (downloaded from the R2 mirror) and the signed release passed install, WebView-debug-port-closed and background/foreground process checks. The debug-build deep CDP interaction run was not executed and is not claimed.",
       "physicalDeviceAcceptance": "pending",
-      "mirror": "https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.3/GoGoGo-0.7.3-android-universal.apk"
+      "mirror": "https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.4/GoGoGo-0.7.4-android-universal.apk"
     },
     "ios": {
       "status": "awaiting-apple-signing-and-distribution-configuration"
@@ -57,8 +57,8 @@
   },
   "assets": {
     "installers": [
-      "GoGoGo-0.7.3-android-universal.apk",
-      "GoGoGo-0.7.3-android-arm64-v8a.apk"
+      "GoGoGo-0.7.4-android-universal.apk",
+      "GoGoGo-0.7.4-android-arm64-v8a.apk"
     ],
     "metadata": [
       "release-manifest.json",
