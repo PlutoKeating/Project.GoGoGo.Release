@@ -1,87 +1,81 @@
-# 走不走 v0.7.1 / GoGoGo v0.7.1
+# 走不走 v0.7.2 / GoGoGo v0.7.2
 
 ## 中文
 
 ### 本次更新
 
-- **第一站快了很多**：狗狗GO 不再在动笔前长时间“思考”。正式环境同类请求里，第一站从发出请求算起 3–6 秒就出现在行程卡上，整条路线约 10–11 秒排完；此前同类请求要等十几秒，而且所有站点是同时冒出来的。
-- **真正一站一站出现**：每选定一个地方就上屏一站，后面的站点依次补上，不会再一下子全部出现，也不会出现某一站先出现又消失的闪动。
-- **等待时看得到它在忙什么**：发出消息后，行程卡出现前会有一块大的工作区——小狗的动作和一条四段进度轨道告诉你它正在想、在找地方、在挑站点还是在排路线；下面是你的出发点、当前天气和时间；找到的地点会以小图滚动经过，下面留着第一站的位置。行程卡一到就原地换上。没有一行提示文字。
-- **页面更干净**：「行程」和「我的」页去掉了顶部的大标题。
-- **登录更快**：登录和注册时服务端的数据库往返大幅减少（建账户、合并游客数据合成一步，会话在边缘直接签发），重新登录不再要等很久。
+- **所有操作都快了很多，组局尤其明显**：好友组局的发起、加入、提想法、投票、定案、出发、打卡、改行程、结束，以及评价、会话列表、打开行程，都重写成“每个请求只等必要的步骤”。正式环境服务端耗时（同一组请求，改前 → 改后）：打开一个局约 7 秒 → 约 0.45 秒；行程列表约 8.5 秒 → 约 0.5 秒；加入组局约 17 秒 → 约 0.8 秒；局主在定案后出发并打卡约 35 秒 → 约 1.3 秒；结束行程此前会超时失败 → 约 0.5 秒。
+- **组局状态实时更新**：打开的群拍板与服务器保持一条实时连接，有人投票、提想法、改行程、出发、打卡或结束时立即推送，只在确实有变化时才读取一次；不再每隔几秒反复向服务器查询。连接断开时自动退回每 15 秒一次的轻量检查（没有变化时服务器不读数据库），并自动重连。
+- **少发很多请求**：定案后的第一次打卡直接出发（原来要先“出发”再“打卡”两次请求）；发起和加入组局不再先等身份查询；结束、退出、评价、删除黑名单后直接用服务器的回执更新本机，不再整页重新拉取；删除带行程的对话不再重复结束同一个局；现场救急重排一次请求写回群局；保存私人档案不再先读一遍；多张图片同时上传；回到前台不再重新拉取本人档案、评价和黑名单。
 
 ### 平台
 
 - **Web H5**：<https://gogogo.plutokeating.beer/>
-- **Android**：签名 Universal APK 与 `arm64-v8a` APK，`versionCode 7001`，10,086,555 bytes，可覆盖安装 0.7.0；已安装 0.6.13 及以上版本的用户可在「我的 → 应用版本与更新」里应用内升级。两个 APK 当前字节完全相同，因为本版本没有 native `.so` 负载。
-  - Universal：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.1/GoGoGo-0.7.1-android-universal.apk>，SHA-256 `68e8bd3f838f7f98c21b268870ad976880f4374b88d8fefa3d64e3dde54c12b1`
-  - arm64-v8a：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.1/GoGoGo-0.7.1-android-arm64-v8a.apk>，SHA-256 `68e8bd3f838f7f98c21b268870ad976880f4374b88d8fefa3d64e3dde54c12b1`
-- **微信小程序**：`0.7.1` 开发版本已上传（产物 SHA-256 `7a263cb9…`），依赖已开启的体验内测自动更新；尚未提交审核，不是面向公众的正式上线。
-- **抖音小程序**：`0.7.1` 预览版已上传（产物 SHA-256 `e49ea8cd…`，预览短链 <https://t.zijieimg.com/i4eYdXer/>，平台未返回到期时间）；尚未提交审核，不是面向公众的正式上线。
+- **Android**：签名 Universal APK 与 `arm64-v8a` APK，`versionCode 7002`，10,090,651 bytes，可覆盖安装 0.7.1；已安装 0.6.13 及以上版本的用户可在「我的 → 应用版本与更新」里应用内升级。两个 APK 当前字节完全相同，因为本版本没有 native `.so` 负载。
+  - Universal：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.2/GoGoGo-0.7.2-android-universal.apk>，SHA-256 `e7d491218de15627a4fc175c81c4274fca822a095c4ec746ada3145ebeb199df`
+  - arm64-v8a：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.2/GoGoGo-0.7.2-android-arm64-v8a.apk>，SHA-256 `e7d491218de15627a4fc175c81c4274fca822a095c4ec746ada3145ebeb199df`
+- **微信小程序**：`0.7.2` 开发版本已上传（产物 SHA-256 `5bb34f2a…`），依赖已开启的体验内测自动更新；尚未提交审核，不是面向公众的正式上线。实时推送需要在小程序后台把 API 域名加入 socket 合法域名；配置前自动使用 15 秒一次的轻量检查。
+- **抖音小程序**：`0.7.2` 预览版已上传（产物 SHA-256 `ec6d7c22…`，预览短链 <https://t.zijieimg.com/i4ejKrrx/>，平台未返回到期时间）；尚未提交审核，不是面向公众的正式上线。socket 合法域名同上。
 - **iOS**：仍缺少 Apple 分发签名配置，本版本没有 IPA。
 
 ### 兼容性与迁移
 
-- 新流事件 `turn-context`（出发点、当前天气、时间）与 `candidates-peek`（正在查看的地点），只用于等待视图展示；不认识它们的旧客户端会忽略。`done.timing` 增加分段耗时字段。
-- 画布还没有站点时，`write_itinerary` 不再一次写出整条路线，新路线由 `pin_stop` 逐站钉；`pin_stop` 不能在 `codemode` 脚本里调用。
-- 对 DeepSeek 官方接口的请求现在带 `thinking: {type: "disabled"}`；其他模型服务商的请求不变。
-- 服务端开启 Workers Logs，记录每轮各阶段耗时，不含对话内容与位置，保留 7 天。
+- 新增 `GET /api/sessions/:id/live`（WebSocket，会话令牌作为子协议 `gogogo, <token>` 传入），推送 `{type:"revision",revision}`；新增 `GET /api/sessions/:id?known=<revision>`，未变化时返回 `{unchanged:true}`。
+- 局主在 `confirmed` 阶段的第一次 `checkin` 同时出发；`POST /api/feedback` 返回写入的评价与屏蔽项；`POST /api/plan/reroute` 写回群局时返回 `sessionRevision`；`finish` 不再顺带清理过期访客（由每小时定时任务负责）。旧客户端的请求方式仍然有效。
+- 所有 API 应答带 `Server-Timing: app;dur=…`。
 - 没有数据库迁移；本机私人档案、会话与行程的存储格式不变，升级不需要清理缓存或重新登录。
 
 ### 验证范围与已知限制
 
-- 后端 63 个测试文件 / 384 项用例通过，新增覆盖：新路线不能一次写出整条且 `pin_stop` 只能由模型直接调用；检索结果先于第一个站点下发候选预览；DeepSeek 请求体带关闭思考参数（本地探针）。
-- 线上实测（正式模型，游客，三轮不同请求）：第一站 3.0–6.4 秒上屏，整轮 10.1–11.3 秒，站点数只增不减；模型首次输出 0.8–4.5 秒。部署后的第一个冷请求读取模型配置约 5.4 秒，之后命中缓存。以上数据来自海外网络测试机，**大陆免代理网络下的首卡时间尚未实测**；Cloudflare 免费网络在大陆的入口延迟与晚高峰丢包仍然存在（本版不涉及备案、香港入口或优选 IP）。
-- 浏览器检查：`check:progressive-itinerary`（无文字工作台：阶段轨道、真实数据、候选滚动、首站槽位；随后逐站上屏、续传、停止）以及对话、行程页、本地优先、组局、导航驾驶舱、账号登录等 14 项既有检查通过。
-- Android：双签名 APK 通过证书、签名形态、权限、正式资源与版本门禁；在无头 Android 14 模拟器上覆盖安装公开 0.7.0，正式签名包通过安装、调试端口关闭、前后台切换进程保持检查。**未执行**调试包深度交互实测。
-- 登录提速只减少了服务端往返；验证码邮件的送达时间取决于账号服务的邮件发送，本版未改动。
-- 小程序与 Android 的真机验收尚未进行。
+- 后端 64 个测试文件 / 398 项用例通过；新增覆盖：组局各操作的批量语句、定案后打卡即出发、单语句评价与列表、带引号／反斜杠／注入式文本／emoji 的字符串原样往返、出错整批拒绝。
+- 在真实 PostgreSQL 17 上逐项核对权限拒绝、行级隔离、版本冲突、重放保护、重复结束与出错回滚，并与旧代码在同一模拟链路（每次往返 100ms）对照：读一局 12 → 1 次往返，入局 24 → 1，局主改动 24 → 2，定案后打卡 57 → 2，结束 17 → 1。
+- 正式环境（游客、海外测试机）复测见上；实时通道已在正式环境验证：非成员被拒绝，成员连上即收到当前版本，写入完成后约 0.2 秒收到推送，`ping`／`pong` 正常。**大陆免代理网络下的整体耗时尚未实测**；带新约束的入局与重排想法仍包含模型与地图调用的时间。
+- 浏览器检查：`check:local-first`、`check:interaction-state`、`check:trip-end`（新增条件读取降级与模拟推送）及组局、行程页、导航、对话等既有检查通过；`conversation-ui-check` 仍有一条 v0.7.0 起过时的文字断言，`check:h5-canonical` 仍在登录一步失败（均为既有问题）。
+- Android：双签名 APK 通过证书、签名形态、权限、正式资源与版本门禁；在无头 Android 14 模拟器上覆盖安装公开 0.7.1，正式签名包通过安装、调试端口关闭、前后台切换进程保持检查。**未执行**调试包深度交互实测。
+- 小程序实时推送依赖平台后台的 socket 合法域名配置（未配置时自动退回轻量检查）；小程序与 Android 的真机验收尚未进行。
 
 ### 发布资源
 
-- 源码标签：`v0.7.1`；源码提交以 `release-manifest.json` 的 `sourceCommit` 为准。
-- 公开发行仓库标签：`v0.7.1`。
-- 国内下载镜像：<https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.1/GoGoGo-0.7.1-android-universal.apk>
+- 源码标签：`v0.7.2`；源码提交以 `release-manifest.json` 的 `sourceCommit` 为准。
+- 公开发行仓库标签：`v0.7.2`。
+- 国内下载镜像：<https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.2/GoGoGo-0.7.2-android-universal.apk>
 
 ## English
 
 ### What's new
 
-- **The first stop comes much sooner**: 狗狗GO no longer "thinks" at length before it starts. In production, the first stop of a comparable request appears on the itinerary card 3–6 seconds after sending and the whole route is laid out in about 10–11 seconds; before, comparable requests took over a dozen seconds and every stop appeared at once.
-- **Really one stop at a time**: each place lands as soon as it is chosen and the next ones follow — no more everything at once, and no stop that appears and then vanishes for a moment.
-- **See what it is busy with while you wait**: until the itinerary card arrives, a large working view shows what 狗狗GO is doing — the puppy's pose and a four-step rail (thinking, looking for places, picking stops, laying out the route), your starting point, the weather now and the time, the places it found scrolling past as thumbnails, and a slot for the first stop. The card takes its place when it arrives. No status text.
-- **Cleaner pages**: the Trip and Me tabs no longer have a big page title.
-- **Faster sign-in**: signing in or up makes far fewer server-side database round trips (entering the account and merging guest data is one step, and the session is issued at the edge), so signing in again no longer drags.
+- **Everything is much faster, group outings most of all**: starting, joining, adding ideas, voting, sealing, setting off, checking in, editing and ending a group outing — plus ratings, the trip list and opening a trip — now wait only for the steps each request really needs. Server time in production for the same requests, before → after: opening an outing about 7 s → about 0.45 s; the trip list about 8.5 s → about 0.5 s; joining about 17 s → about 0.8 s; the host setting off and checking in after sealing about 35 s → about 1.3 s; ending a trip used to time out → about 0.5 s.
+- **Live group updates**: an open group outing keeps a live connection to the server. Votes, ideas, edits, setting off, check-ins and ending are pushed at once, and the outing is read only when something actually changed — no more asking the server every few seconds. If the connection drops it falls back to a light check every 15 seconds (the server skips the database when nothing changed) and reconnects by itself.
+- **Far fewer requests**: the first check-in after sealing sets off in the same request (before: "set off", then "check in"); starting and joining a group no longer wait for an identity lookup first; ending, leaving, rating and unblocking update this device from the server's reply instead of reloading everything; deleting a conversation that carries a trip no longer ends it twice; an on-site reroute writes back to the group in one request; saving the private profile no longer reads it first; several images upload at once; returning to the foreground no longer reloads your profile, ratings and blocked places.
 
 ### Platforms
 
 - **Web H5**: <https://gogogo.plutokeating.beer/>
-- **Android**: signed universal and `arm64-v8a` APKs, `versionCode 7001`, 10,086,555 bytes, installs over 0.7.0; users on 0.6.13 or later can update in the app from "Me → App version & updates". The two APKs are byte-identical for now because this release has no native `.so` payload.
-  - Universal: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.1/GoGoGo-0.7.1-android-universal.apk>, SHA-256 `68e8bd3f838f7f98c21b268870ad976880f4374b88d8fefa3d64e3dde54c12b1`
-  - arm64-v8a: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.1/GoGoGo-0.7.1-android-arm64-v8a.apk>, SHA-256 `68e8bd3f838f7f98c21b268870ad976880f4374b88d8fefa3d64e3dde54c12b1`
-- **WeChat Mini Program**: `0.7.1` development version uploaded (artifact SHA-256 `7a263cb9…`), relying on the enabled automatic experience-version update; not submitted for review and not a public launch.
-- **Douyin Mini Program**: `0.7.1` preview uploaded (artifact SHA-256 `e49ea8cd…`, preview link <https://t.zijieimg.com/i4eYdXer/>, no expiry returned by the platform); not submitted for review and not a public launch.
+- **Android**: signed universal and `arm64-v8a` APKs, `versionCode 7002`, 10,090,651 bytes, installs over 0.7.1; users on 0.6.13 or later can update in the app from "Me → App version & updates". The two APKs are byte-identical for now because this release has no native `.so` payload.
+  - Universal: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.2/GoGoGo-0.7.2-android-universal.apk>, SHA-256 `e7d491218de15627a4fc175c81c4274fca822a095c4ec746ada3145ebeb199df`
+  - arm64-v8a: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.7.2/GoGoGo-0.7.2-android-arm64-v8a.apk>, SHA-256 `e7d491218de15627a4fc175c81c4274fca822a095c4ec746ada3145ebeb199df`
+- **WeChat Mini Program**: `0.7.2` development version uploaded (artifact SHA-256 `5bb34f2a…`), relying on the enabled automatic experience-version update; not submitted for review and not a public launch. Live updates need the API domain added to the mini program's socket domain list; until then it uses the 15-second light check.
+- **Douyin Mini Program**: `0.7.2` preview uploaded (artifact SHA-256 `ec6d7c22…`, preview link <https://t.zijieimg.com/i4ejKrrx/>, no expiry returned by the platform); not submitted for review and not a public launch. Same socket domain note.
 - **iOS**: Apple distribution signing is still missing; no IPA in this release.
 
 ### Compatibility and migration
 
-- New stream events `turn-context` (starting point, weather now, time) and `candidates-peek` (places being looked at), for the waiting view only; older clients ignore them. `done.timing` gains per-phase fields.
-- On an empty canvas `write_itinerary` no longer lays out a whole route; a new route is pinned stop by stop with `pin_stop`, which cannot be called from a `codemode` script.
-- Requests to the DeepSeek official API now carry `thinking: {type: "disabled"}`; requests to other model providers are unchanged.
-- Workers Logs is on, recording per-phase timings for each reply (no conversation text or locations), kept for 7 days.
+- New `GET /api/sessions/:id/live` (WebSocket; the session token is passed as the subprotocol `gogogo, <token>`) pushing `{type:"revision",revision}`; new `GET /api/sessions/:id?known=<revision>` answering `{unchanged:true}` when nothing changed.
+- The host's first `checkin` in the `confirmed` phase also sets off; `POST /api/feedback` returns the stored rating and block; `POST /api/plan/reroute` returns `sessionRevision` when it writes back to a group; `finish` no longer cleans up expired guests (the hourly schedule does). Older clients' requests still work.
+- Every API answer carries `Server-Timing: app;dur=…`.
 - No database migration; local private profiles, conversations and trips keep their format, and no cache clearing or new sign-in is needed.
 
 ### Verification and known limitations
 
-- Backend: 63 test files / 384 cases pass, newly covering that a new route cannot be written whole and `pin_stop` is model-only, that the candidate preview precedes the first stop patch, and (local probe) that DeepSeek requests carry the thinking-off parameter.
-- Live tests with the production model (guest, three different requests): first stop at 3.0–6.4 s, whole reply 10.1–11.3 s, stop counts only grow; first model output 0.8–4.5 s. The first cold request after a deploy spent about 5.4 s reading the model configuration, then hit the cache. These numbers come from a test machine on an overseas network; **first-stop times on a mainland network without a proxy have not been measured yet**, and the entry latency and evening packet loss of Cloudflare's free network in mainland China remain (this release adds no ICP filing, Hong Kong entry or preferred IPs).
-- Browser checks: `check:progressive-itinerary` (wordless working view with rail, real data, scrolling candidates and first-stop slot; then stop-by-stop arrival, resume and stop) plus 14 existing checks (conversation, itinerary page, local-first, group outing, navigation cockpit, account sign-in and more).
-- Android: both signed APKs pass the certificate, signature scheme, permission, production-asset and version gates; on a headless Android 14 emulator the build installed over the public 0.7.0 and the signed release passed install, WebView-debug-port-closed and background/foreground checks. The debug-build deep interaction run was **not** executed.
-- The sign-in speed-up removes server round trips only; how fast the code email arrives depends on the account service's mail delivery, which this release does not change.
-- Mini-program and Android physical-device acceptance has not been done yet.
+- Backend: 64 test files / 398 cases pass, newly covering the batched statements of each group operation, setting off on the first check-in after sealing, single-statement ratings and lists, strings with quotes, backslashes, injection-like text and emoji round-tripping exactly, and whole-batch rejection on errors.
+- On a real PostgreSQL 17, permission refusals, row-level isolation, revision conflicts, replay protection, repeated ending and rollback on errors were checked one by one and compared with the old code over the same simulated link (100 ms per round trip): opening an outing 12 → 1 round trips, joining 24 → 1, host edits 24 → 2, checking in after sealing 57 → 2, ending 17 → 1.
+- Production timings (guest, overseas test machine) are above. The live channel was verified in production: non-members are refused, members get the current revision on connecting and the push about 0.2 s after a write completes, and `ping`/`pong` works. **End-to-end timings on a mainland network without a proxy have not been measured yet**; joining with new needs and replanning ideas still include the model and map calls.
+- Browser checks: `check:local-first`, `check:interaction-state`, `check:trip-end` (new: conditional-read fallback and simulated pushes) and the existing group, trip page, navigation and conversation checks pass; `conversation-ui-check` still has one text assertion outdated since v0.7.0 and `check:h5-canonical` still fails at sign-in (both pre-existing).
+- Android: both signed APKs pass the certificate, signature scheme, permission, production-asset and version gates; on a headless Android 14 emulator the build installed over the public 0.7.1 and the signed release passed install, WebView-debug-port-closed and background/foreground checks. The debug-build deep interaction run was **not** executed.
+- Live updates in mini programs depend on the platforms' socket domain configuration (otherwise the light check is used); mini-program and Android physical-device acceptance has not been done yet.
 
 ### Release assets
 
-- Source tag: `v0.7.1`; the source commit is `sourceCommit` in `release-manifest.json`.
-- Public release repository tag: `v0.7.1`.
-- Mirror download (faster in mainland China): <https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.1/GoGoGo-0.7.1-android-universal.apk>
+- Source tag: `v0.7.2`; the source commit is `sourceCommit` in `release-manifest.json`.
+- Public release repository tag: `v0.7.2`.
+- Mirror download (faster in mainland China): <https://gogogo.williamhvollita.dpdns.org/releases/download/v0.7.2/GoGoGo-0.7.2-android-universal.apk>
