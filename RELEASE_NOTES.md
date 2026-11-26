@@ -1,45 +1,47 @@
-# 走不走 v0.6.11 / GoGoGo v0.6.11
+# 走不走 v0.6.12 / GoGoGo v0.6.12
 
 ## 中文
 
 ### 本次更新
 
-- **「行程」页按出行阶段重做**：页面不再把所有功能一次摆出来，而是看你处在哪一步——自己的草稿、等朋友入局、大家拍板、已经定案、出发路上——每一步只给一个主按钮：开始出发、生成路线、就这个／定案、全员出发／导航去集合点、继续导航；全部打卡后是“结束并评价”。
-- **一页看完，不用上下翻**：有行程时「行程」页整页不滚动。最上面一行说明现在的情况（阶段、剩余时间、谁已赞成、还差几票），点一下看所有成员和他们的想法；下面是标题与「邀请」按钮、可展开的地图缩略条、一站一卡的站点卡片，最底部是操作栏。原来飘在屏幕中间、挡住内容的底部按钮条已修复。
-- **拍板和投票合成一件事**：拍板期间局主和局友都可以直接在卡片上换一家、加站、调顺序；改动后大家需要重新表态。局友点「就这个」表示同意眼前这版，点「想换」写下想法，狗狗GO 会融合大家的想法重新排；局主可以随时「定案」，只有自己一个人时也可以。
-- **按阶段出现的按钮**：拍板时每站的第一个按钮是「换一家」，出发后才变成「打卡已到」；「现场有变」只在出发后出现。加入日历、让狗狗GO微调、更换出发起点、重新排、结束行程等收进右下角的「···」。
-- **别人改了行程会提示**：局友改动路线时，被改的站点卡会短暂高亮，并显示一行“谁改了什么”。
-- **邀请按钮**：对话里行程页右上角的邀请按钮加上「邀请」二字，变成长圆形按钮。
+- **结束行程随时都能点，点了就结束**：不管行程处在哪一步（包括群拍板还在等人入局、还没有路线），也不管另一个操作是否还在进行、网络是否断开，「···」里的「结束行程」和全部打卡后的「结束并评价」都能直接点。确认一次后行程立刻结束：导航、迷你导航胶囊、还没同步完的改动一起收起，「行程」页变成评价卡。之后不会再被改回去，联网后自动同步到云端。
+- **群拍板：局主结束对所有人生效，局友只能退出**：局主结束群拍板后，所有局友的页面会在大约 15 秒内跟着收尾。局友不能结束整个局，只能「退出这个局」：退出后这个局会从你的行程里移除，局主那边人数和票数随之更新；要回来需要局主重新邀请。
+- **删除对话随时都能删**：带着行程的对话、狗狗GO 正在回复的对话都可以删除。删除正在回复的对话会立刻停止回复并换成新的空白对话；删除带着行程的对话会一起结束那段行程（是群拍板时对所有局友结束），确认框会提前说明。删掉的对话不会再出现在历史里。
+- **换行程会结束旧行程**：确认新的行程时，旧的个人行程会自动结束；如果你正在一个群拍板里，会先问你是否结束（局主）或退出（局友）。狗狗GO 在回复里自动打开的行程不会把你带离群拍板，也不会把你已结束的行程带回来。
+- **没人结束的行程会自动结束**：最后一站离店 6 小时后（无路线的群拍板在创建 24 小时后），行程会自动标为已结束。
+- **吉祥物与图标更新**：吉祥物改为完整形象（不再带徽章框），Android 启动图与桌面图标同步更新。
 
 ### 平台
 
 - **Web H5**：<https://gogogo.plutokeating.beer/>
-- **Android**：签名 Universal APK 与 `arm64-v8a` APK，`versionCode 6011`，10,012,720 bytes，可覆盖安装 0.6.10。两个 APK 当前字节完全相同，因为本版本没有 native `.so` 负载。
-  - Universal：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.11/GoGoGo-0.6.11-android-universal.apk>，SHA-256 `0183c1ccb07d4bf4df58625b732fc040d8246921c0a4471048d25acfe0f50eaa`
-  - arm64-v8a：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.11/GoGoGo-0.6.11-android-arm64-v8a.apk>，SHA-256 `0183c1ccb07d4bf4df58625b732fc040d8246921c0a4471048d25acfe0f50eaa`
-- **微信小程序**：`0.6.11` 开发版本已上传（产物 SHA-256 `06fb276c…`），依赖已开启的体验内测自动更新；尚未提交审核，不是面向公众的正式上线。
-- **抖音小程序**：`0.6.11` 预览版已上传（产物 SHA-256 `4853fe34…`，预览短链 <https://t.zijieimg.com/i4JKHTC2/>，平台未返回到期时间）；尚未提交审核，不是面向公众的正式上线。
+- **Android**：签名 Universal APK 与 `arm64-v8a` APK，`versionCode 6012`，10,074,267 bytes，可覆盖安装 0.6.11。两个 APK 当前字节完全相同，因为本版本没有 native `.so` 负载。
+  - Universal：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.12/GoGoGo-0.6.12-android-universal.apk>，SHA-256 `0836358895caa8fa099b67f37850891ef9495483bdf6bb28da9ff218511ffc76`
+  - arm64-v8a：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.12/GoGoGo-0.6.12-android-arm64-v8a.apk>，SHA-256 `0836358895caa8fa099b67f37850891ef9495483bdf6bb28da9ff218511ffc76`
+- **微信小程序**：`0.6.12` 开发版本已上传（产物 SHA-256 `565f343d…`），依赖已开启的体验内测自动更新；尚未提交审核，不是面向公众的正式上线。
+- **抖音小程序**：`0.6.12` 预览版已上传（产物 SHA-256 `68709541…`，预览短链 <https://t.zijieimg.com/i4JETCbA/>，平台未返回到期时间）；尚未提交审核，不是面向公众的正式上线。
 - **iOS**：仍缺少 Apple 分发签名配置，本版本没有 IPA。
 
 ### 兼容性与迁移
 
-- 无数据库迁移，接口与后端代码相对 0.6.10 没有变化；局主一人定案使用已有的定案接口。
-- 账户、本机私人档案、本地会话、行程与草稿的存储格式保持不变；升级不需要清理缓存或重新登录。
+- 数据库迁移 `018`（退出群拍板、自动结束），已在生产库应用；新增接口 `POST /api/sessions/:id/finish`、`POST /api/sessions/:id/leave`。删除对话接口不再返回“进行中的行程对话不能删除”。
+- 旧版客户端继续可用：它们结束行程仍走原来的结束动作（现在不会再因版本或阶段被拒绝）。
+- 账户、本机私人档案、本地会话、行程与草稿的存储格式不变；新增本机记录 `local:ended-trips` 用于记住已结束的行程与已删除的对话。升级不需要清理缓存或重新登录。
 
 ### 验证范围与已知限制
 
-- 前端类型检查；新增阶段规则检查（个人草稿／出发中、拍板流程、局主一人定案、过半票数、被改动站点）；群拍板检查新增：拍板中的状态栏与局主「定案」、拍板时没有打卡按钮、页面不滚动、操作栏既不压住站点卡也不落到底部标签栏下、已定案局友的「导航去集合点」与成员面板。另有 8 项 H5 无头浏览器回归、本地优先与小程序输入框检查通过，并人工查看了 390×844 与 360×640 下各阶段的截图。
-- Android：双签名 APK 通过证书、签名形态、权限、正式资源与版本门禁；在无头 Android 14 模拟器上完成对公开 0.6.10 的覆盖安装（`versionCode 6011`、`versionName 0.6.11`），以及正式签名包的安装、调试端口关闭、前后台切换进程保持检查。**未执行**调试包的深度交互实测，因此不声称该项通过。
-- 小程序里整页高度、站点卡在剩余高度内的滑动、底部面板与安全区没有在开发者工具或真机里实测。
-- 导航页抽屉里的群拍板卡片本次没有改动。
+- 后端 59 个测试文件 / 362 项用例通过，新增覆盖：版本号过期也能结束、无路线也能结束、重复结束、非局主不能结束、退出后不可见与重复退出、退出后重新计票定案、局主不能退出、自动结束规则、删除对话连带结束群拍板。
+- 前端新增浏览器检查：局主在另一个操作进行中且断网时结束群拍板（评价卡立刻出现、迟到回执与轮询不会复活、联网后自动送达）、局友退出、局主在别处结束后局友端收尾、被拒绝的删除不回滚、回复生成中删除当前对话。另有 13 项 H5 无头浏览器回归、本地优先、小程序输入框与品牌资源门禁通过。
+- Android：双签名 APK 通过证书、签名形态、权限、正式资源与版本门禁；在无头 Android 14 模拟器上完成对公开 0.6.11 的覆盖安装（`versionCode 6012`、`versionName 0.6.12`），以及正式签名包的安装、调试端口关闭、前后台切换进程保持检查。**未执行**调试包的深度交互实测。
+- 小程序上的结束、退出与删除流程只经过源码、构建与产物门禁，没有在开发者工具或真机里实测。
+- 局友端感知局主结束依赖轮询，最长约 15 秒。
 - **本轮验证仅限无头环境**：没有真机或可见浏览器的人工验收。
 
 ### 发布资源
 
-- 源码标签：`v0.6.11`；源码提交以 `release-manifest.json` 的 `sourceCommit` 为准。
-- 公开发行仓库标签：`v0.6.11`。
+- 源码标签：`v0.6.12`；源码提交以 `release-manifest.json` 的 `sourceCommit` 为准。
+- 公开发行仓库标签：`v0.6.12`。
 - 发行清单 `release-manifest.json` 与 `SHA256SUMS` 作为本 Release 附件提供。
-- 正式 Release：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/tag/v0.6.11>
+- 正式 Release：<https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/tag/v0.6.12>
 
 ---
 
@@ -47,39 +49,41 @@
 
 ### What changed
 
-- **The Trip tab follows where your outing is**: instead of showing every feature at once, the page now depends on the step you are at — your own draft, waiting for friends to join, deciding together, decided, or on the way — and each step has one main button: Set off, Build the route, This one / Decide, Everyone go / Go to meetup, Resume navigation, and Finish and rate once every stop is visited.
-- **One page, no scrolling**: with a trip, the Trip tab no longer scrolls. The top row says where things stand (step, time left, who approved, how many votes are still needed); tap it to see every member and their ideas. Below are the title with an Invite button, a map strip you can expand, one card per stop, and the action bar at the bottom. The bottom button bar that floated mid-screen and covered content is fixed.
-- **Deciding and voting are one flow**: while deciding, the host and members can all swap a venue, add a stop or reorder directly on the cards; after a change everyone confirms again. Members tap This one to approve the version on screen, or Change it to write an idea that 狗狗GO blends into a new route; the host can Decide at any time, including alone.
-- **Buttons that fit the step**: while deciding, each stop's first button is Swap; it becomes Check in only once you are on the way, and Plans changed appears only then too. Add to calendar, Ask 狗狗GO to adjust, Change starting point, Plan a new one and End trip moved into the ··· button.
-- **Changes from others are pointed out**: when a member changes the route, the stops they touched glow briefly and one line says who changed what.
-- **Invite button**: the invite button at the top right of the chat itinerary page now reads Invite next to its icon, as a pill.
+- **End a trip any time, and it ends**: whatever step the trip is at (including a group plan still waiting for people or without a route), and whether or not another action is still running or the network is down, End trip in the ··· menu and Finish and rate after the last check-in can always be tapped. After one confirmation the trip ends at once: navigation, the mini navigation island and unsynced changes are put away, and the Trip tab shows the review card. It is never undone; the cloud is updated once you are back online.
+- **Group plans: the host ends it for everyone, members can leave**: when the host ends a group plan, every member's page follows within about 15 seconds. Members cannot end the whole plan; they can Leave this group plan, which removes it from their trips and updates the host's member and vote counts. Coming back needs a new invite from the host.
+- **Delete a conversation any time**: conversations that carry a trip, and conversations 狗狗GO is still replying in, can be deleted. Deleting one with a reply in progress stops the reply and opens a new blank chat; deleting one that carries a trip ends that trip too (for every member, if it is a group plan), and the confirmation says so. Deleted conversations do not come back in History.
+- **A new trip ends the old one**: confirming a new itinerary ends your previous personal trip; inside a group plan you are first asked whether to end it (host) or leave it (member). A plan that 狗狗GO opens by itself in a reply never takes you out of a group plan and never brings back a trip you ended.
+- **Trips nobody ended end by themselves**: six hours after the last stop (24 hours after creation for a group plan that never got a route), a trip is marked as finished.
+- **Mascot and icons**: the mascot is shown in full without a badge frame, and the Android splash screen and launcher icons are updated to match.
 
 ### Platforms
 
 - **Web H5**: <https://gogogo.plutokeating.beer/>
-- **Android**: signed Universal and `arm64-v8a` APKs, `versionCode 6011`, 10,012,720 bytes, installs over 0.6.10. Both files are currently byte-identical because this release has no native `.so` payload.
-  - Universal: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.11/GoGoGo-0.6.11-android-universal.apk>, SHA-256 `0183c1ccb07d4bf4df58625b732fc040d8246921c0a4471048d25acfe0f50eaa`
-  - arm64-v8a: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.11/GoGoGo-0.6.11-android-arm64-v8a.apk>, SHA-256 `0183c1ccb07d4bf4df58625b732fc040d8246921c0a4471048d25acfe0f50eaa`
-- **WeChat Mini Program**: `0.6.11` development build uploaded (artifact SHA-256 `06fb276c…`), delivered through the enabled internal-test auto update; not submitted for review, so not a public launch.
-- **Douyin Mini Program**: `0.6.11` preview build uploaded (artifact SHA-256 `4853fe34…`, preview link <https://t.zijieimg.com/i4JKHTC2/>, no expiry returned by the platform); not submitted for review, so not a public launch.
+- **Android**: signed Universal and `arm64-v8a` APKs, `versionCode 6012`, 10,074,267 bytes, installs over 0.6.11. Both files are currently byte-identical because this release has no native `.so` payload.
+  - Universal: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.12/GoGoGo-0.6.12-android-universal.apk>, SHA-256 `0836358895caa8fa099b67f37850891ef9495483bdf6bb28da9ff218511ffc76`
+  - arm64-v8a: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/download/v0.6.12/GoGoGo-0.6.12-android-arm64-v8a.apk>, SHA-256 `0836358895caa8fa099b67f37850891ef9495483bdf6bb28da9ff218511ffc76`
+- **WeChat Mini Program**: `0.6.12` development build uploaded (artifact SHA-256 `565f343d…`), delivered through the enabled internal-test auto update; not submitted for review, so not a public launch.
+- **Douyin Mini Program**: `0.6.12` preview build uploaded (artifact SHA-256 `68709541…`, preview link <https://t.zijieimg.com/i4JETCbA/>, no expiry returned by the platform); not submitted for review, so not a public launch.
 - **iOS**: no IPA because Apple distribution signing is not configured.
 
 ### Compatibility and migration
 
-- No database migration; the API and backend code are unchanged from 0.6.10. A host deciding alone uses the existing decide action.
-- Account data, on-device private profiles, local conversations, trips and drafts keep their format; upgrading needs no cache clearing or re-login.
+- Database migration `018` (leaving a group plan, ending trips automatically) is applied in production; new endpoints `POST /api/sessions/:id/finish` and `POST /api/sessions/:id/leave`. Deleting a conversation no longer fails with "a conversation with an active outing can't be deleted".
+- Older clients keep working: they still end trips through the existing finish action, which is no longer refused for a stale version or a phase.
+- Account data, on-device private profiles, local conversations, trips and drafts keep their format; a new on-device record `local:ended-trips` remembers ended trips and deleted conversations. Upgrading needs no cache clearing or re-login.
 
 ### Verification and known limits
 
-- Frontend type check; a new check of the step rules (own draft / on the way, the deciding flow, a host deciding alone, the majority count, changed stops); the group check now also covers the deciding status row and the host's Decide, no check-in button while deciding, the page not scrolling, the action bar neither covering the stop cards nor sitting under the tab bar, and a member's Go to meetup and members sheet once decided. Eight more headless H5 browser regressions, the local-first and mini-program composer checks pass, and screenshots of each step at 390×844 and 360×640 were reviewed.
-- Android: both signed APKs pass the certificate, signature-scheme, permission, production-resource and version gates; on a headless Android 14 emulator the build installed over the public 0.6.10 (`versionCode 6011`, `versionName 0.6.11`) and the signed release passed the install, debug-port-closed and background/foreground process checks. The deep interaction run of the debug build was **not** executed and is not claimed.
-- Inside the mini programs, the full-page height, swiping the stop cards in the remaining height, and the bottom sheets with safe areas were not exercised in devtools or on a device.
-- The group card inside the navigation drawer is unchanged in this release.
+- Backend: 59 test files / 362 tests pass, newly covering ending with a stale version, ending without a route, ending twice, non-hosts not ending, leaving (no longer visible, leaving twice), a re-count that decides after someone leaves, the host not leaving, the auto-end rule, and deleting a conversation ending its group plan.
+- New frontend browser checks: the host ends a group plan while another action is running and the network is down (review card at once, late replies and polls do not bring it back, delivered once online), a member leaves, members wind down after the host ended elsewhere, a refused delete is not rolled back, and deleting the current conversation mid-reply. Thirteen more headless H5 browser regressions, the local-first, mini-program composer and brand-asset gates pass.
+- Android: both signed APKs pass the certificate, signature-scheme, permission, production-resource and version gates; on a headless Android 14 emulator the build installed over the public 0.6.11 (`versionCode 6012`, `versionName 0.6.12`) and the signed release passed the install, debug-port-closed and background/foreground process checks. The deep interaction run of the debug build was **not** executed.
+- In the mini programs, ending, leaving and deleting were checked through source, build and artifact gates only, not in devtools or on a device.
+- Members learn that the host ended a plan through polling, within about 15 seconds.
 - **Verification is headless only**: no real-device or visible-browser manual acceptance.
 
 ### Release assets
 
-- Source tag: `v0.6.11`; the exact source commit is recorded as `sourceCommit` in `release-manifest.json`.
-- Public release repository tag: `v0.6.11`.
+- Source tag: `v0.6.12`; the exact source commit is recorded as `sourceCommit` in `release-manifest.json`.
+- Public release repository tag: `v0.6.12`.
 - `release-manifest.json` and `SHA256SUMS` are attached to this Release.
-- Release: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/tag/v0.6.11>
+- Release: <https://github.com/PlutoKeating/Project.GoGoGo.Release/releases/tag/v0.6.12>
